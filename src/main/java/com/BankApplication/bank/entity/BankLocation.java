@@ -1,6 +1,7 @@
 package com.BankApplication.bank.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class BankLocation
 
 
     @OneToOne
+    @JsonBackReference
    private BankDetails bankDetails;
 
 

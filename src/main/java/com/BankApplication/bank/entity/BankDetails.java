@@ -1,6 +1,8 @@
 package com.BankApplication.bank.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,9 +20,11 @@ public class BankDetails
 
 
     @OneToOne(mappedBy = "bankDetails")
+    @JsonBackReference
     Account account;
 
     @OneToOne(mappedBy = "bankDetails")
+    @JsonManagedReference
     BankLocation bankLocation;
 
 

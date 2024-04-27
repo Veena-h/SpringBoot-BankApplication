@@ -2,6 +2,7 @@ package com.BankApplication.bank.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,7 +31,7 @@ public class Customer
 
 
     @OneToOne(mappedBy = "customer")
-    @JsonBackReference
+    @JsonManagedReference
     Account account;
 
 

@@ -1,6 +1,7 @@
 package com.BankApplication.bank.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Transaction
     private String transactionTime;
 
     @ManyToOne
+    @JsonBackReference
     private Account account;
 
 
