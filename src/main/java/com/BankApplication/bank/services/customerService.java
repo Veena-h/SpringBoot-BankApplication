@@ -10,7 +10,6 @@ public interface customerService
 
     public Customer getCustomerBycustid(Integer id);
 
-    public List<Customer> getAllCustomer();
 
 
 }

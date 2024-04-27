@@ -17,4 +17,9 @@ public class accountServiceImple implements accountService
     public Account addaccount(Account account) {
         return ac.save(account);
     }
+
+    @Override
+    public Account getAccountById(Integer id) {
+        return ac.getAccountById(id);
+    }
 }

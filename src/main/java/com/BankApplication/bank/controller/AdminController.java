@@ -1,4 +1,5 @@
 package com.BankApplication.bank.controller;
 
-public class AdminController {
+public class AdminController
+{
 }

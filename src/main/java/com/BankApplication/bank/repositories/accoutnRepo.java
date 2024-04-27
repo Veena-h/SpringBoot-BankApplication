@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface accoutnRepo extends JpaRepository<Account,Integer>
 {
+    public Account getAccountById(Integer id);
 }

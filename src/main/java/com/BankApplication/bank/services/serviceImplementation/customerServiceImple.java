@@ -28,8 +28,5 @@ public class customerServiceImple implements customerService
         return customer.getCustomerBycustid(id);
     }
 
-    @Override
-    public List<Customer> getAllCustomer() {
-        return customer.getAllCustomer();
-    }
+
 }

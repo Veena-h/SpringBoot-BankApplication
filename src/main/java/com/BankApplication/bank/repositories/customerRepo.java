@@ -10,7 +10,7 @@ public interface customerRepo extends JpaRepository<Customer ,Integer>
 {
     public Customer getCustomerBycustid(Integer id);
 
-    public List<Customer> getAllCustomer();
+
 
 
 }

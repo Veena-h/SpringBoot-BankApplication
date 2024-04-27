@@ -1,14 +1,8 @@
 package com.BankApplication.bank.controller;
 
 
-import com.BankApplication.bank.entity.Account;
-import com.BankApplication.bank.entity.BankDetails;
-import com.BankApplication.bank.entity.BankLocation;
-import com.BankApplication.bank.entity.Customer;
-import com.BankApplication.bank.services.serviceImplementation.BankDetailsImple;
-import com.BankApplication.bank.services.serviceImplementation.accountServiceImple;
-import com.BankApplication.bank.services.serviceImplementation.bankLocationImple;
-import com.BankApplication.bank.services.serviceImplementation.customerServiceImple;
+import com.BankApplication.bank.entity.*;
+import com.BankApplication.bank.services.serviceImplementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +28,9 @@ public class CustomerController
 
     @Autowired
     bankLocationImple  bankLocationImple;
+
+    @Autowired
+    transactionServiceImple transactionImple;
 
 
 
@@ -86,12 +83,21 @@ public class CustomerController
         return  ResponseEntity.status(HttpStatus.ACCEPTED).body(c);
     }
 
-
-    @GetMapping("/getallcustomer")
-    public ResponseEntity<List<Customer>> getallcustomer()
+    @GetMapping("/getaccount/{id}")
+    public ResponseEntity<Account> getaccount(@PathVariable Integer id)
     {
-        List<Customer> c = customerimple.getAllCustomer();
-        return  ResponseEntity.status(HttpStatus.ACCEPTED).body(c);
+        Account a = accountimple.getAccountById(id);
+        return  ResponseEntity.status(HttpStatus.ACCEPTED).body(a);
     }
+
+
+
+    @PostMapping("/transaction")
+    public ResponseEntity<Transaction> addtransaction(@RequestBody  Transaction t)
+    {
+        Transaction transaction = transactionImple.addTransaction(t);
+        return ResponseEntity.status(HttpStatus.CREATED).body(transaction);
+    }
+
 
 }
